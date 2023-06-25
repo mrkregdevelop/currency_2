@@ -38,6 +38,7 @@ def rate_list(request):
 
 
 def status_code(request):
+    print('sdasjdjk')
     response = HttpResponse(
         'DATA',
         status=200
