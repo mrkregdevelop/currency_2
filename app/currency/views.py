@@ -1,19 +1,31 @@
 from django.http.response import HttpResponse
+from django.shortcuts import render
 
 from currency.models import Rate
 
 
 def rate_list(request):
-    results = []
+    '''
+    MVTU
+    V - view
+    U - urls
+    M - model
+    T - template
+    '''
     rates = Rate.objects.all()
+    context = {
+        'rates': rates
+    }
+    return render(request, 'rate_list.html', context)
 
-    for rate in rates:
-        results.append(
-            f'ID: {rate.id}, sell:{rate.sell}, buy:{rate.buy}, '
-            f'created: {rate.created}, currency_type: {rate.currency_type}, source: {rate.source}<br>'
-        )
 
-    return HttpResponse(str(results))
+def test_template(request):
+    name = request.GET.get('name')
+    context = {
+        'username': name
+    }
+    return render(request, 'test.html', context)
+
 
 
 '''
