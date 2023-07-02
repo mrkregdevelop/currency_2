@@ -17,13 +17,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from currency.views import rate_list, status_code, test_template
+from currency.views import (
+    rate_list, status_code,
+    test_template, rate_create,
+    request_method,
+    rate_update, rate_delete,
+    rate_details
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('rate/list/', rate_list),
+    path('rate/create/', rate_create),
+    path('rate/details/<int:pk>/', rate_details),
+    path('rate/update/<int:pk>/', rate_update),
+    path('rate/delete/<int:pk>/', rate_delete),
+
     path('template/', test_template),
 
-    path('sc1/', status_code)
+    path('sc1/', status_code),
+    path('rm/', request_method)
 ]
