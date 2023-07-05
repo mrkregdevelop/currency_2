@@ -7,3 +7,7 @@ class Rate(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     currency = models.CharField(max_length=3)  # usd, eur
     source = models.CharField(max_length=68)
+
+
+class Source(models.Model):
+    name = models.CharField(max_length=64)
