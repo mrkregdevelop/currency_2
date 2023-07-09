@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)d80zh2^(9a(^38u@cvuuwdfb!z&!+mv7@89=qpx*2fh+19%f+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,9 +46,12 @@ DJANGO_APPS = [
 EXTERNAL_APPS = [
     'django_extensions',
     'debug_toolbar',
+    'rangefilter',
+    'import_export',
 ]
 
 INTERNAL_APPS = [
+    'currency.apps.SuitConfig',
     'currency',
 ]
 

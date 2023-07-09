@@ -9,3 +9,6 @@ makemigrations:
 
 shell:
 	python app/manage.py shell_plus --print-sql
+
+createsuperuser:
+	python app/manage.py createsuperuser
