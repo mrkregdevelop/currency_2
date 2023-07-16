@@ -27,3 +27,11 @@ class Source(models.Model):
     class Meta:
         verbose_name = _('Source')
         verbose_name_plural = _('Sources')
+
+
+class ContactUs(models.Model):
+    created = models.DateTimeField(_('Created'), auto_now_add=True)
+    name = models.CharField(_('Name'), max_length=128)
+    reply_to = models.EmailField(_('Email'))
+    subject = models.CharField(_('Subject'), max_length=128)
+    body = models.CharField(_('Body'), max_length=1024)
