@@ -1,10 +1,12 @@
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth import get_user_model
 from django.views.generic import (
     ListView, CreateView, UpdateView, DetailView,
     DeleteView, TemplateView
 )
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from currency.forms import RateForm, SourceForm
 from currency.models import Rate, ContactUs
@@ -76,6 +78,24 @@ class ContactUsCreateView(CreateView):
         redirect = super().form_valid(form)
         self._send_mail()
         return redirect
+
+
+class ProfileView(LoginRequiredMixin, UpdateView):
+    queryset = get_user_model().objects.all()  # User
+    template_name = 'registration/profile_update.html'
+    success_url = reverse_lazy('index')
+    fields = (
+        'first_name',
+        'last_name'
+    )
+
+    # def get_queryset(self):
+    #     queryset = super().get_queryset().filter(id=self.request.user.id)
+    #     print(queryset)
+    #     return queryset
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 
