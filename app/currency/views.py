@@ -98,18 +98,13 @@ class ProfileView(LoginRequiredMixin, UpdateView):
         return self.request.user
 
 
-
 '''
-User form
-Name: Taras
-Email: admin@example.com
-Subject: Test subject
-Body: Test body
+1. email + password + confirm password (get email)
+2. email (get email) + password + confirm password
+3. email (get email) 7 days
+4. phone, passport, code (confirm) + login
 
-Send email to support
-Recipient: support@example.com
-Subject: User Contact Us
-Body: Request from: Taras. Email to reply: admin@example.com. Subject Subject: Test subject. Body: Test body.
-
-SMTP - simple mail transfer protocol
+1. form (email, password, confirm password)
+2. send email with confirmation link
+3. Activation endpoint
 '''

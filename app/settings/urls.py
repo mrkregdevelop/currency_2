@@ -14,6 +14,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
 
     path('currency/', include('currency.urls')),
+    path('account/', include('account.urls')),
 
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
 ]
