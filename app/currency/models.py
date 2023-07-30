@@ -14,7 +14,7 @@ class Rate(models.Model):
         # default=1
         default=RateCurrencyChoices.USD  # correct
     )  # if field contains choices (currency), then hr = object.get_<field_name>_display(), object.get_currency_display()
-    source = models.CharField(_('Source'), max_length=68)
+    source = models.ForeignKey('currency.Source', on_delete=models.CASCADE, related_name='rates')
 
     class Meta:
         verbose_name = _('Rate')
@@ -22,11 +22,19 @@ class Rate(models.Model):
 
 
 class Source(models.Model):
+    '''
+    OneToOne - X
+    OneToMany - Y
+    ManyToMany - X
+    '''
     name = models.CharField(_('Name'), max_length=64)
 
     class Meta:
         verbose_name = _('Source')
         verbose_name_plural = _('Sources')
+
+    def __str__(self):
+        return self.name
 
 
 class ContactUs(models.Model):
