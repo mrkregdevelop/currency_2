@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
     Update Profile
 {% endblock title %}
 
 {% block content %}
     Update Profile Form
+    <br>
+{#    {% if user.avatar %}#}
+{#        <img src="{{ user.avatar.url }}" alt="avatar" height="100px" width="150px">#}
+{#    {% else %}#}
+{#        <img src="{% static 'users/anonymous-avatar-icon-25.jpg' %}" alt="avatar" height="100px" width="150px">#}
+{#    {% endif %}#}
+    <img src="{{ user.avatar_url }}" alt="avatar" height="100px" width="150px">
 
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>

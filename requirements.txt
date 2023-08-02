@@ -3,7 +3,9 @@ django-extensions
 django-debug-toolbar
 django-admin-rangefilter
 django-import-export
+django-storages
 ipython
+boto3
 
 #flake
 flake8
