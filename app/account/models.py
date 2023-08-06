@@ -23,7 +23,6 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-
     @property
     def avatar_url(self) -> str:
         if self.avatar:

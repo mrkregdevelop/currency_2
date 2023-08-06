@@ -1,5 +1,5 @@
-from django.conf import settings
-from django.core.mail import send_mail
+from datetime import datetime, timedelta
+
 from django.views.generic import (
     ListView, CreateView, UpdateView, DetailView,
     DeleteView, TemplateView
@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 
 from currency.forms import RateForm, SourceForm
 from currency.models import Rate, ContactUs
+from currency.tasks import send_email_in_background
 
 
 class RateListView(ListView):
@@ -55,20 +56,23 @@ class ContactUsCreateView(CreateView):
     )
 
     def _send_mail(self):
-        recipient = settings.DEFAULT_FROM_EMAIL
+        '''
+        00:00 - 8.59 | 9:00 - 18:00 | 18:01 - 23:59
+        exec at 9:00 |     send     | exec at 9.00 next day
+        '''
+
         subject = 'User Contact Us'
         body = f'''
-                Request from: {self.object.name}. 
-                Email to reply: {self.object.reply_to}. 
-                Subject Subject: {self.object.subject}. 
-                Body: {self.object.body}.
-                '''
-        send_mail(
-            subject,
-            body,
-            recipient,
-            [recipient],
-            fail_silently=False
+            Request from: {self.object.name}. 
+            Email to reply: {self.object.reply_to}. 
+            Subject Subject: {self.object.subject}. 
+            Body: {self.object.body}.
+        '''
+        send_email_in_background.apply_async(
+            kwargs={
+                'subject': subject,
+                'body': body
+            }
         )
 
     def form_valid(self, form):

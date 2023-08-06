@@ -6,6 +6,7 @@ django-import-export
 django-storages
 ipython
 boto3
+Celery
 
 #flake
 flake8

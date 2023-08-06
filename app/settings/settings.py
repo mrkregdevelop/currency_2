@@ -183,3 +183,6 @@ AUTH_USER_MODEL = 'account.User'
 
 DOMAIN = '0.0.0.0:8000'
 HTTP_PROTOCOL = 'http'
+
+CELERY_BROKER_URL = 'amqp://localhost'
+# protocol: amqp, localhost, port=5672, user=guest, password=guest
