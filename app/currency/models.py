@@ -28,6 +28,7 @@ class Source(models.Model):
     ManyToMany - X
     '''
     name = models.CharField(_('Name'), max_length=64)
+    code_name = models.CharField(_('Code name'), max_length=32, unique=True)
 
     class Meta:
         verbose_name = _('Source')
