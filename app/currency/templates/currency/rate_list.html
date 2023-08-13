@@ -6,10 +6,14 @@
 
 {% block content %}
 
-    <a href="{% url 'currency:rate-create' %}">Create</a><br>
 
     <div class="row">
         <div class="col-12">
+            <a class="button button-primary" href="{% url 'currency:rate-create' %}">Create</a><br>
+            <form method="get">
+                {{ filter.form.as_p }}
+                <button type="submit">Filter</button>
+            </form>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -51,8 +55,9 @@
     </div>
 
     <div class="row">
-    <div class="col-lg-6 col-sm-12">Col 1</div>
-    <div class="col-lg-6 col-sm-12">Col 2</div>
+        <div class="col-12">
+            {% include 'includes/pagination.html' %}
+        </div>
     </div>
 
 {% endblock content %}

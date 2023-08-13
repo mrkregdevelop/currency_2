@@ -4,6 +4,8 @@ django-debug-toolbar
 django-admin-rangefilter
 django-import-export
 django-storages
+django-filter
+
 ipython
 boto3
 Celery

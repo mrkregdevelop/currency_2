@@ -52,6 +52,7 @@ EXTERNAL_APPS = [
     'rangefilter',
     'import_export',
     'storages',
+    'django_filters',
 ]
 
 INTERNAL_APPS = [

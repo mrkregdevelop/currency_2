@@ -1,19 +1,34 @@
 from datetime import datetime, timedelta
+import re
 
 from django.views.generic import (
     ListView, CreateView, UpdateView, DetailView,
     DeleteView, TemplateView
 )
 from django.urls import reverse_lazy
+from django_filters.views import FilterView
 
+from currency.filters import RateFilter
 from currency.forms import RateForm, SourceForm
 from currency.models import Rate, ContactUs
 from currency.tasks import send_email_in_background
 
 
-class RateListView(ListView):
+class RateListView(FilterView):
     queryset = Rate.objects.all().select_related('source')
-    # template_name = 'rate_list.html'
+    paginate_by = 10
+    filterset_class = RateFilter
+    template_name = 'currency/rate_list.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['filter_params'] = '&'.join(
+            f'{key}={value}'
+            for key, value in self.request.GET.items()
+            if key != 'page'
+        )
+        # context['filter_params'] = re.sub(r'(\?|&)page=(\d*)&*', '', self.request.GET.urlencode())
+        return context
 
 
 class RateCreateView(CreateView):

@@ -31,10 +31,9 @@ class User(AbstractUser):
         return static('users/anonymous-avatar-icon-25.jpg')
 
     def save(self, *args, **kwargs):
-        if not self.pk and not self.username:
-            self.username = str(uuid.uuid4())
 
-        super().save(*args, **kwargs)
+
+        super().save(*args, **kwargs)  # -> save to DB
 
 
 '''
