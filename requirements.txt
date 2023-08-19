@@ -5,6 +5,9 @@ django-admin-rangefilter
 django-import-export
 django-storages
 django-filter
+djangorestframework
+djangorestframework-xml
+djangorestframework-yaml
 
 ipython
 boto3

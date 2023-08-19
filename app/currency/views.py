@@ -1,15 +1,12 @@
-from datetime import datetime, timedelta
-import re
-
+from django.urls import reverse_lazy
 from django.views.generic import (
-    ListView, CreateView, UpdateView, DetailView,
+    CreateView, UpdateView, DetailView,
     DeleteView, TemplateView
 )
-from django.urls import reverse_lazy
 from django_filters.views import FilterView
 
 from currency.filters import RateFilter
-from currency.forms import RateForm, SourceForm
+from currency.forms import RateForm
 from currency.models import Rate, ContactUs
 from currency.tasks import send_email_in_background
 

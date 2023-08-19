@@ -53,6 +53,7 @@ EXTERNAL_APPS = [
     'import_export',
     'storages',
     'django_filters',
+    'rest_framework',
 ]
 
 INTERNAL_APPS = [
@@ -126,6 +127,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
 
 
 # Internationalization
