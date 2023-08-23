@@ -24,7 +24,7 @@ from currency.models import Rate
 
 
 class RateViewSet(viewsets.ModelViewSet):
-    queryset = Rate.objects.all().order_by('-created')
+    queryset = Rate.objects.all().order_by('-id')
     serializer_class = RateSerializer  # json -> obj, obj -> json
     # renderer_classes = (JSONRenderer, YAMLRenderer, XMLRenderer)
     pagination_class = RatePagination

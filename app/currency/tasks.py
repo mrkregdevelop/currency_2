@@ -62,8 +62,8 @@ def parse_privatbank():
     retry_kwargs={'max_retries': 5}
 )
 def send_email_in_background(subject, body):
-    from time import sleep
-    sleep(10)
+    # from time import sleep
+    # sleep(10)
 
     recipient = settings.DEFAULT_FROM_EMAIL
     send_mail(

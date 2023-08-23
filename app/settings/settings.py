@@ -141,6 +141,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': (
     #     'rest_framework.permissions.IsAuthenticated',  # 403
     # ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
 
 
