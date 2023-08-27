@@ -1,4 +1,5 @@
 import pytest
+from django.core.management import call_command
 
 
 @pytest.fixture(autouse=True, scope="function")
@@ -16,14 +17,36 @@ def api_client():
 
 
 @pytest.fixture(scope='function')
-def api_client_authorized(django_user_model):
+def api_client_auth(django_user_model):
     from rest_framework.test import APIClient
     client = APIClient()
 
-    user = django_user_model.objects.create(
-        email='admin@example.com',
+    password = 'superSecretPassword'
+    user = django_user_model(
+        email='example@admin.com',
     )
-    user.set_password('qwertyasd')
+    user.set_password(password)
+    user.save()
 
-    client.login(email='admin@example.com', password='qwertyasd')
+    token_response = client.post(
+        '/api/v1/account/token/',
+        data={'email': user.email, 'password': password},
+    )
+    assert token_response.status_code == 200
+    access = token_response.json()['access']
+    client.credentials(HTTP_AUTHORIZATION=f'JWT {access}')
+
     yield client
+
+    user.delete()
+
+
+@pytest.fixture(scope='session', autouse=True)
+def load_fixtures(django_db_setup, django_db_blocker):
+    with django_db_blocker.unblock():
+        fixtures = (
+            'sources.json',
+            'rates.json',
+        )
+        for fixture in fixtures:
+            call_command('loaddata', f'app/tests/fixtures/{fixture}')

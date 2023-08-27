@@ -1,0 +1,222 @@
+[
+  {
+    "model": "currency.rate",
+    "pk": 11,
+    "fields": {
+      "buy": "40.00",
+      "sell": "41.00",
+      "created": "2023-08-09T18:29:15.513Z",
+      "currency": 2,
+      "source": 1
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 12,
+    "fields": {
+      "buy": "36.00",
+      "sell": "37.00",
+      "created": "2023-08-09T18:29:15.522Z",
+      "currency": 1,
+      "source": 1
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 13,
+    "fields": {
+      "buy": "36.00",
+      "sell": "37.00",
+      "created": "2023-08-09T18:35:00.211Z",
+      "currency": 1,
+      "source": 1
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 14,
+    "fields": {
+      "buy": "32.00",
+      "sell": "33.00",
+      "created": "2023-08-13T08:22:59.709Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 15,
+    "fields": {
+      "buy": "35.00",
+      "sell": "38.00",
+      "created": "2023-08-13T08:22:59.709Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 16,
+    "fields": {
+      "buy": "36.00",
+      "sell": "38.00",
+      "created": "2023-08-13T08:22:59.710Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 17,
+    "fields": {
+      "buy": "30.00",
+      "sell": "40.00",
+      "created": "2023-08-13T08:22:59.710Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 18,
+    "fields": {
+      "buy": "37.00",
+      "sell": "40.00",
+      "created": "2023-08-13T08:22:59.711Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 19,
+    "fields": {
+      "buy": "30.00",
+      "sell": "39.00",
+      "created": "2023-08-13T08:22:59.711Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 20,
+    "fields": {
+      "buy": "38.00",
+      "sell": "31.00",
+      "created": "2023-08-13T08:22:59.711Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 21,
+    "fields": {
+      "buy": "39.00",
+      "sell": "36.00",
+      "created": "2023-08-13T08:22:59.712Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 22,
+    "fields": {
+      "buy": "33.00",
+      "sell": "38.00",
+      "created": "2023-08-13T08:22:59.712Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 23,
+    "fields": {
+      "buy": "38.00",
+      "sell": "40.00",
+      "created": "2023-08-13T08:22:59.713Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 24,
+    "fields": {
+      "buy": "33.00",
+      "sell": "33.00",
+      "created": "2023-08-13T08:22:59.713Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 25,
+    "fields": {
+      "buy": "36.00",
+      "sell": "30.00",
+      "created": "2023-08-13T08:22:59.714Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 26,
+    "fields": {
+      "buy": "35.00",
+      "sell": "38.00",
+      "created": "2023-08-13T08:22:59.714Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 27,
+    "fields": {
+      "buy": "34.00",
+      "sell": "31.00",
+      "created": "2023-08-13T08:22:59.714Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 28,
+    "fields": {
+      "buy": "38.00",
+      "sell": "33.00",
+      "created": "2023-08-13T08:22:59.715Z",
+      "currency": 1,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 29,
+    "fields": {
+      "buy": "38.00",
+      "sell": "37.00",
+      "created": "2023-08-13T08:22:59.715Z",
+      "currency": 2,
+      "source": 2
+    }
+  },
+  {
+    "model": "currency.rate",
+    "pk": 30,
+    "fields": {
+      "buy": "35.00",
+      "sell": "30.00",
+      "created": "2023-08-13T08:22:59.716Z",
+      "currency": 1,
+      "source": 2
+    }
+  }
+]

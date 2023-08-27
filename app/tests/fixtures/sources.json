@@ -1,0 +1,18 @@
+[
+  {
+    "model": "currency.source",
+    "pk": 1,
+    "fields": {
+      "name": "PrivatBank",
+      "code_name": "privatbank"
+    }
+  },
+  {
+    "model": "currency.source",
+    "pk": 2,
+    "fields": {
+      "name": "Dummy source",
+      "code_name": "dummy"
+    }
+  }
+]
