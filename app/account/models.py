@@ -30,11 +30,6 @@ class User(AbstractUser):
 
         return static('users/anonymous-avatar-icon-25.jpg')
 
-    def save(self, *args, **kwargs):
-
-
-        super().save(*args, **kwargs)  # -> save to DB
-
 
 '''
 1. validate

@@ -7,7 +7,7 @@ from currency.api.v1.views import (
 app_name = 'currency_api'
 
 router = DefaultRouter(trailing_slash=False)
-router.register('rates/', RateViewSet, basename='rates')
+router.register('rates', RateViewSet, basename='rates')
 
 
 urlpatterns = [

@@ -1,7 +1,9 @@
+from django.core.cache import cache
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from currency.choices import RateCurrencyChoices
+from currency.consts import LATEST_RATE_KEY
 
 
 class Rate(models.Model):
@@ -19,6 +21,11 @@ class Rate(models.Model):
     class Meta:
         verbose_name = _('Rate')
         verbose_name_plural = _('Rates')
+        get_latest_by = 'created'
+
+    def save(self, *args, **kwargs):
+        cache.delete(LATEST_RATE_KEY)
+        return super().save(*args, **kwargs)
 
 
 class Source(models.Model):
