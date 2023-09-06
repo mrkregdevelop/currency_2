@@ -11,6 +11,7 @@ djangorestframework-yaml
 djangorestframework-simplejwt
 drf-yasg
 pymemcache
+gunicorn
 
 ipython
 boto3
