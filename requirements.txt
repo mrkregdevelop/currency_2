@@ -12,6 +12,7 @@ djangorestframework-simplejwt
 drf-yasg
 pymemcache
 gunicorn
+psycopg2-binary
 
 ipython
 boto3
