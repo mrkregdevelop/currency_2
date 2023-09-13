@@ -9,14 +9,33 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
 
+import environ
 from celery.schedules import crontab
 from django.urls import reverse_lazy
 
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False),
+    RABBITMQ_DEFAULT_USER=(str, 'guest'),
+    RABBITMQ_DEFAULT_PASS=(str, 'guest'),
+    RABBITMQ_DEFAULT_PORT=(str, '5672'),
+    RABBITMQ_DEFAULT_HOST=(str, 'localhost'),
+    POSTGRES_PASSWORD=(str, 'password'),
+    POSTGRES_USER=(str, ''),
+    POSTGRES_DB=(str, 'currency_db'),
+    POSTGRES_HOST=(str, 'localhost'),
+    POSTGRES_PORT=(str, '5432'),
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+environ.Env.read_env(os.path.join(BASE_DIR.parent, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +45,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-)d80zh2^(9a(^38u@cvuuwdfb!z&!+mv7@89=qpx*2fh+19%f+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -106,11 +125,11 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'currency-db',
-        'USER': 'currency',
-        'PASSWORD': 'POSTGRES_PASSWORD',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT'),
     }
 }
 
@@ -235,7 +254,9 @@ AUTH_USER_MODEL = 'account.User'
 DOMAIN = '0.0.0.0:8000'
 HTTP_PROTOCOL = 'http'
 
-CELERY_BROKER_URL = 'amqp://localhost'
+CELERY_BROKER_URL = f'amqp://{env("RABBITMQ_DEFAULT_USER")}:' \
+                    f'{env("RABBITMQ_DEFAULT_PASS")}@' \
+                    f'{env("RABBITMQ_DEFAULT_HOST")}:{env("RABBITMQ_DEFAULT_PORT")}'
 # protocol: amqp, localhost, port=5672, user=guest, password=guest
 
 CELERY_BEAT_SCHEDULE = {

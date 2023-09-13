@@ -9,6 +9,7 @@ djangorestframework
 djangorestframework-xml
 djangorestframework-yaml
 djangorestframework-simplejwt
+django-environ
 drf-yasg
 pymemcache
 gunicorn
