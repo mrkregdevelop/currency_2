@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from suit.apps import DjangoSuitConfig
+# from suit.apps import DjangoSuitConfig
 
 
 class CurrencyConfig(AppConfig):
@@ -10,5 +10,5 @@ class CurrencyConfig(AppConfig):
         from . import receivers
 
 
-class SuitConfig(DjangoSuitConfig):
-    layout = 'horizontal'
+# class SuitConfig(DjangoSuitConfig):
+#     layout = 'horizontal'

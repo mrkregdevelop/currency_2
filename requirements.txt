@@ -1,4 +1,5 @@
 Django==4.2.2
+django-suit
 django-extensions
 django-debug-toolbar
 django-admin-rangefilter

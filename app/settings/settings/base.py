@@ -77,7 +77,7 @@ EXTERNAL_APPS = [
 ]
 
 INTERNAL_APPS = [
-    'currency.apps.SuitConfig',
+    # 'currency.apps.SuitConfig',
     'currency',
     'account',
 ]
@@ -213,7 +213,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
-STATIC_ROOT = BASE_DIR.parent / 'var' / 'static'
+# STATIC_ROOT = BASE_DIR.parent / 'var' / 'static'
+STATIC_ROOT = '/tmp/static'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR.parent / 'var' / 'media'
@@ -269,7 +270,7 @@ CELERY_BEAT_SCHEDULE = {
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.memcached.PyMemcacheCache",
-        "LOCATION": "127.0.0.1:11211",
+        "LOCATION": "memcached:11211",
     }
 }
 
